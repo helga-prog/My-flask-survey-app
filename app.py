@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def survey():
-    HTML = """<!DOCTYPE html>
+    HTML = """
+    <!DOCTYPE html>
     <html>
     <head>
         <title>Private Primary School Survey - Khaunga</title>
@@ -12,18 +13,20 @@ def survey():
     <body>
         <h1>Welcome to the Questionnaire for the Upcoming Private Primary School in Khaunga</h1>
         <form action="/submit" method="post">
-        
+
         <h3>Name of the School:</h3>
         <input type="text" name="school_name"><br><br>
 
         <h2>Viability of the School Business</h2>
         <p>1. Are you aware of the need for a private primary school in Khaunga?</p>
         <input type="radio" name="awareness" value="Yes"> Yes
-        <input type="radio" name="awareness" value="No"> No<br><br>
+        <input type="radio" name="awareness" value="No"> No
+        <input type="radio" name="awareness" value="Prefer not to say"> Prefer not to say<br><br>
 
         <p>2. Would you consider enrolling your child(ren) in a private primary school if one were available?</p>
         <input type="radio" name="enrollment" value="Yes"> Yes
-        <input type="radio" name="enrollment" value="No"> No<br><br>
+        <input type="radio" name="enrollment" value="No"> No
+        <input type="radio" name="enrollment" value="Prefer not to say"> Prefer not to say<br><br>
 
         <p>3. What factors would influence your decision to enroll your child(ren) in a private school?</p>
         <input type="checkbox" name="factors" value="Cost"> Cost
@@ -31,12 +34,15 @@ def survey():
         <input type="checkbox" name="factors" value="Quality of Education"> Quality of Education
         <input type="checkbox" name="factors" value="School Facilities"> School Facilities
         <input type="checkbox" name="factors" value="Reputation"> Reputation
-        <input type="checkbox" name="factors" value="Curriculum"> Curriculum<br><br>
+        <input type="checkbox" name="factors" value="Curriculum"> Curriculum
+        <input type="text" name="factors_other" placeholder="Other (please specify)"><br><br>
 
         <h2>Location and Renovation</h2>
         <p>4. Do you think repurposing the former Qatar bar and restaurant is a suitable location for a school?</p>
         <input type="radio" name="location_suitable" value="Yes"> Yes
-        <input type="radio" name="location_suitable" value="No"> No<br><br>
+        <input type="radio" name="location_suitable" value="No"> No
+        <input type="radio" name="location_suitable" value="Prefer not to say"> Prefer not to say<br><br>
+
         <p>5. What renovations or improvements are necessary for the facility to become a functional school?</p>
         <textarea name="renovations_needed"></textarea><br><br>
 
@@ -48,6 +54,7 @@ def survey():
             <option value="PP2">PP2</option>
             <option value="Grade 1-6">Grade 1-6</option>
         </select><br><br>
+
         <p>7. What factors should be considered when determining the initial grade levels to offer?</p>
         <textarea name="factors_for_grades"></textarea><br><br>
 
@@ -58,13 +65,16 @@ def survey():
             <option value="Islamic">Islamic</option>
             <option value="Both">Combination of both</option>
         </select><br><br>
+
         <p>9. What benefits or challenges do you foresee with each curriculum option?</p>
         <textarea name="curriculum_challenges"></textarea><br><br>
 
         <h2>Religious Affiliation</h2>
         <p>10. Would you support attaching the school to the Khaunga mosque?</p>
         <input type="radio" name="religious_affiliation" value="Yes"> Yes
-        <input type="radio" name="religious_affiliation" value="No"> No<br><br>
+        <input type="radio" name="religious_affiliation" value="No"> No
+        <input type="radio" name="religious_affiliation" value="Prefer not to say"> Prefer not to say<br><br>
+
         <p>11. How do you think a religious affiliation would impact the school's reputation and enrollment?</p>
         <textarea name="religion_impact"></textarea><br><br>
 
@@ -79,7 +89,8 @@ def survey():
         <textarea name="leadership_qualities"></textarea><br><br>
         <p>15. Would you prefer a leadership structure similar to that of public schools or a different approach?</p>
         <input type="radio" name="leadership_structure" value="Similar"> Similar
-        <input type="radio" name="leadership_structure" value="Different"> Different<br><br>
+        <input type="radio" name="leadership_structure" value="Different"> Different
+        <input type="radio" name="leadership_structure" value="Prefer not to say"> Prefer not to say<br><br>
 
         <h2>Demographic Information</h2>
         <label>Age:</label>
@@ -89,6 +100,7 @@ def survey():
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
+            <option value="Prefer not to say">Prefer not to say</option>
         </select><br><br>
         <label>Occupation:</label>
         <input type="text" name="occupation"><br><br>
@@ -105,7 +117,6 @@ def survey():
     </body>
     </html>
     """
-    print(HTML)  # Debug: Print the HTML to be rendered
     return render_template_string(HTML)
 
 @app.route('/submit', methods=['POST'])
