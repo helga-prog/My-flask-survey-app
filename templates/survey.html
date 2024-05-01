@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+</head>
+<body>
+    <h1>Survey for the Viability of a Private Primary School in Khaunga</h1>
+    <form action="/submit" method="post">
+        <p>Are you aware of the need for a private primary school in Khaunga?</p>
+        <input type="radio" id="awarenessYes" name="awareness" value="Yes">
+        <label for="awarenessYes">Yes</label>
+        <input type="radio" id="awarenessNo" name="awareness" value="No">
+        <label for="awarenessNo">No</label>
+        <input type="radio" id="awarenessNotSure" name="awareness" value="Not sure">
+        <label for="awarenessNotSure">Not sure</label>
+
+        <p>Would you consider enrolling your child(ren) in a private primary school if one were available?</p>
+        <input type="radio" id="enrollmentYes" name="enrollment_interest" value="Yes">
+        <label for="enrollmentYes">Yes</label>
+        <input type="radio" id="enrollmentNo" name="enrollment_interest" value="No">
+        <label for="enrollmentNo">No</label>
+        <input type="radio" id="enrollmentMaybe" name="enrollment_interest" value="Maybe">
+        <label for="enrollmentMaybe">Maybe</label>
+
+        <p>What factors would influence your decision to enroll your child(ren) in a private school? (Select all that apply)</p>
+        <input type="checkbox" id="cost" name="factors" value="Cost">
+        <label for="cost">Cost</label>
+        <input type="checkbox" id="location" name="factors" value="Location">
+        <label for="location">Location</label>
+        <input type="checkbox" id="qualityOfEducation" name="factors" value="Quality of Education">
+        <label for="qualityOfEducation">Quality of Education</label>
+        <input type="checkbox" id="schoolFacilities" name="factors" value="School Facilities">
+        <label for="schoolFacilities">School Facilities</label>
+        <input type="checkbox" id="reputation" name="factors" value="Reputation">
+        <label for="reputation">Reputation</label>
+        <input type="checkbox" id="curriculum" name="factors" value="Curriculum">
+        <label for="curriculum">Curriculum</label>
+
+        <!-- Add more questions as needed -->
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
